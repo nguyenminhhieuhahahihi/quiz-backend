@@ -1,0 +1,23 @@
+{
+    "dev":{
+        "name":"d6tj8870r6bqjt",
+        "host": "ec2-54-147-33-38.compute-1.amazonaws.com",
+        "username": "fsiufaximfacfe",
+        "password": "4fa409dab74c4f7ffccd88483b0d9c038e55da9471252eb980d76ef34b86def0",
+        "dialect": "postgres",
+        "dialectOptions":{
+            "ssl":{
+                "require": true,
+                "rejectUnauthorized": false
+            }
+        },
+        "logging": false
+    },
+    "live": {
+        "database": {
+            "name": "name1",
+            "username": "username1",
+            "password": "password1"
+        }
+    }
+}

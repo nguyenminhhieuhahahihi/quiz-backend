@@ -1,0 +1,29 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "engines": {
+    "node": "16.15.1",
+    "npm": "8.11.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^2.0.19",
+    "pg": "^8.7.3",
+    "pg-promise": "^10.11.1",
+    "sequelize": "^6.21.4",
+    "sequelize-auto": "^0.8.8",
+    "swagger-ui-dist": "^4.14.0",
+    "swagger-ui-express": "^4.5.0"
+  }
+}
