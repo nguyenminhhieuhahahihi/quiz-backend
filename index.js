@@ -1,13 +1,14 @@
 
 
-
+//import dotenv from 'dotenv';
 
 const express = require('express')
 const pool = require('./merchant_model.js')
 const app = express()
 const cors = require("cors");
-const port = 3001
+
 require("dotenv").config();
+//dotenv.config();
 
 app.use(cors({ origin: true, credentials: true }));
 
@@ -27,6 +28,7 @@ app.get('/', (req, res) => {
   res.status(200).send('Hello!');
 })
 
+const port = process.env.PORT;
 app.listen(port, () => {
   console.log(`App running on port ${port}.`)
 })
