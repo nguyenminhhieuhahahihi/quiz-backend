@@ -7,13 +7,17 @@ const pool = require('./merchant_model.js')
 const app = express()
 const cors = require("cors");
 
+var multer = require('multer')
+
+
 require("dotenv").config();
 //dotenv.config();
 
 app.use(cors({ origin: true, credentials: true }));
 
 app.use(express.json())
-
+app.set('view engine', 'ejs')
+app.set('views', './views')
 
 const swaggerUiExpress = require('swagger-ui-express'),
 swaggerFile = require('./swagger.json');
@@ -28,12 +32,35 @@ app.get('/', (req, res) => {
   res.status(200).send('Hello!');
 })
 
+
 const port = process.env.PORT;
 app.listen(port, () => {
   console.log(`App running on port ${port}.`)
 })
 
+app.get('/form', (req, res) => {
+  res.render('form')
+})
 
+
+// lưu trữ file
+var storage = multer.diskStorage({
+  destination: function(req,file,cb){
+    cb(null,'./upload')
+  },
+  filename: function(req,file,cb){ 
+    cb(null,file.originalname)      // lưu tên file = tên file đã tải
+  }
+})
+
+var upload = multer({storage: storage})
+app.post('/upload', upload.single("file"), function(req,res){
+  console.log(req.file)
+  res.send("Upload file thành công!")
+  if(req.file ==""){
+    res.send("lỗi")
+  }
+})
 
 
 // app.get('/quiz', (req, res) => {
